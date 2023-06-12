@@ -1,47 +1,51 @@
-'use strict'; 
+'use strict';
 
 // Generar un número aleatorio del 1 al 6
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
+// Función que se ejecuta al hacer click
+const button = document.querySelector(".js-btn");
+const resultElement = document.querySelector(".js-result"); // Constante para el elemento con clase .js-result
 
+button.addEventListener('click', toPlay();
 
-// Función que se ejecuta al hacer click"
-const boton = document.querySelector(".js-btn");
-boton.addEventListener('click', jugar);
-
-function jugar() {
-  const numeroElegido = document.querySelector(".js-num").value;
-  const apuesta = document.querySelector(".js-apuesta").value;
-  const saldoA = document.querySelector(".js-saldo").innerText;
-  const resultado = document.querySelector(".js-result").innerText;
-  
-  if (numeroElegido || apuesta) {
-    document.querySelector(".js-result");
-    return;
-  }
-  
-  if (numeroElegido < 1 || numeroElegido > 6) {
-    document.querySelector(".js-result");
-    return;
-  }
-  
-  if (apuesta > saldoA) {
-    document.querySelector(".js-result");
-    return;
-  }
-  
-  const numeroAleatorio = getRandomNumber();
-  
-  if (numeroElegido === numeroAleatorio) {
-    saldoA += apuesta * 2;
-    document.querySelector(".js-result").innerText = "Has ganado el doble de lo apostado ";
-  } else {
-    saldoA -= apuesta;
-    document.querySelector(".js-result").innerText = "Has perdido lo apostado ";
-  }
-  
-  document.querySelector(".js-saldo") saldoA + "€";
+function setTextContent(text) {
+  resultElement.innerText = text;
 }
+
+function toPlay() {
+  const chosenNumber = document.querySelector(".js-num").value;
+  const bet = document.querySelector(".js-bet").value;
+  let moneyA = document.querySelector(".js-money").innerText;
+  
+  if (chosenNumber || bet) {
+    setTextContent("");
+    return;
+  }
+  
+  if (chosenNumber < 1 || chosenNumber > 6) {
+    setTextContent("");
+    return;
+  }
+  
+  if (bet > moneyA) {
+    setTextContent("");
+    return;
+  }
+  
+  const randomNumber = getRandomNumber();
+  
+  if (chosenNumber === randomNumber) {
+    moneyA = parseInt(moneyA) + parseInt(bet) * 2;
+    setTextContent("Has ganado el doble de lo apostado ");
+  } else {
+    moneyA -= bet;
+    setTextContent("Has perdido lo apostado ");
+  }
+  
+  document.querySelector(".js-money").innerText = moneyA + "€";
+}
+
 
