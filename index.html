@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,30 @@
     <link rel="stylesheet" href="./main.css">
     <title>Juego de apuestas</title>
 </head>
+
 <body>
-    <h1>Dados y Apuestas</h1>
-    <h3>Introduce aquí tu jugada</h3>
-<section>
-    <input class="num js-num" type="number" min="1" max="6" placeholder="Que número apuestas del 1 al 6?">
-    <input class="js-bet" type="number" min="1" placeholder="¿Cuánto apuestas?">
-    <button class="js-btn">Jugar</button>
-    <p class="js-result"></p>
-</section>
-    <h2>Vamos a jugar!</h2>
-    <p>Saldo: <span class="js-money">50€</span></p>
+    <header>
+        <h1>Dados y Apuestas</h1>
+        <h3>Introduce tu jugada</h3>
+    </header>
+    <section class="input-section">
+        <input class="num js-num" type="number" min="1" max="6" placeholder="Elige un número del 1 al 6">
+        <input class="js-bet" type="number" min="1" placeholder="Apuesta">
+        <button class="js-btn">¡Jugar!</button>
+        <p class="js-result"></p>
+    </section>
+    <section class="statistics-section">
+        <h2>Estadísticas</h2>
+        <p>Total de juegos jugados: <span class="js-total-juegos"></span></p>
+        <p>Total de dinero ganado/perdido: <span class="js-total-dinero"></span></p>
+    </section>
+    <footer>
+        <h2>Vamos a jugar!</h2>
+        <p>Saldo: <span class="js-money">50€</span></p>
+        <button class="js-new-bet-btn" hidden>Realizar nueva apuesta</button>
+    </footer>
+    <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
+
 </html>
+
